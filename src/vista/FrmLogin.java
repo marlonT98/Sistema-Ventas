@@ -286,7 +286,10 @@ public class FrmLogin extends javax.swing.JFrame {
             //comprobamos si es true o false ya que del controlador regresa un booleano
             if (controlUsuario.loginUser(usuario)) {
                 
-                   JOptionPane.showMessageDialog(null, "Login corecto");
+           // Credenciales correctas, abrir el menú y cerrar la ventana de login
+            FrmMenu menu = new FrmMenu();
+            menu.setVisible(true);
+            this.dispose(); // Cierra la ventana de login
                 
             } else {
                 
