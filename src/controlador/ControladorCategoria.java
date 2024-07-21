@@ -6,7 +6,7 @@ import modelo.Categoria;
 
 public class ControladorCategoria {
 
-    //metodo para registrar una categoria
+    //metodo para guardar una categoria
     public boolean guardar(Categoria objeto) {
 
         boolean respuesta = false;
@@ -40,7 +40,7 @@ public class ControladorCategoria {
 
         boolean respuesta = false;
 
-        String sql = "select descripcion from tb_categoria where descripcion='"+categoria+"'";
+        String sql = "select descripcion from tb_categoria where descripcion='" + categoria + "'";
         Statement st;
 
         try {
@@ -56,6 +56,65 @@ public class ControladorCategoria {
 
         } catch (SQLException e) {
             System.out.println("Error al consultar categoria: " + e);
+        }
+
+        return respuesta;
+
+    }
+
+    //****metodo para actualizar una categoria***
+    public boolean actualizar(Categoria objeto, int idCategoria) {
+
+        boolean respuesta = false;
+        Connection cn = Conexion.conectar();
+
+        try {
+
+            PreparedStatement consulta = cn.prepareStatement(
+                    "update tb_categoria set descripcion=? where idCategorias = '" + idCategoria + "'");
+
+            consulta.setString(1, objeto.getDescripcion());
+
+            //ose si se ejecutor nos devuelve 1 que es mayor que cero
+            if (consulta.executeUpdate() > 0) {
+
+                respuesta = true;
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar categoria: " + e);
+        }
+
+        return respuesta;
+
+    }
+
+    //****metodo para eliminar una categoria***
+    public boolean eliminar(int idCategoria) {
+
+        boolean respuesta = false;
+        Connection cn = Conexion.conectar();
+
+        try {
+
+            PreparedStatement consulta = cn.prepareStatement(
+                    "delete from tb_categoria where idCategorias =?");
+
+           // Utilizar parámetros preparados para evitar inyección SQL
+             consulta.setInt(1, idCategoria);
+
+          // Ejecutar la consulta y verificar si se eliminó algún registro
+            if (consulta.executeUpdate() > 0) {
+
+                respuesta = true;
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar categoria: " + e);
         }
 
         return respuesta;
