@@ -115,6 +115,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_gestionar_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
         jMenuItem_gestionar_producto.setText("Gestionar produto");
         jMenuItem_gestionar_producto.setPreferredSize(new java.awt.Dimension(200, 30));
+        jMenuItem_gestionar_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_gestionar_productoActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem_gestionar_producto);
 
         jMenuItem_actualizar_stock.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -277,6 +282,12 @@ public class FrmMenu extends javax.swing.JFrame {
         interProducto.setVisible(true);
  
     }//GEN-LAST:event_jMenuItem_nuevo_productoActionPerformed
+
+    private void jMenuItem_gestionar_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_productoActionPerformed
+      InterGestionarProducto interGestionarProducto = new InterGestionarProducto();
+      jDesktopPane_menu.add(interGestionarProducto);
+      interGestionarProducto.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_gestionar_productoActionPerformed
 
     /**
      * @param args the command line arguments

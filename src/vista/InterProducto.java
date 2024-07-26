@@ -127,13 +127,13 @@ public class InterProducto extends javax.swing.JInternalFrame {
 
         //validar campos
         if (txt_nombre.getText().equals("") || txt_cantidad.getText().equals("")
-                || txt_precio.getText().equals("") || txt_descripcion.getText().equals("")) {
+                || txt_precio.getText().equals("") ) {
 
             JOptionPane.showMessageDialog(null, "Complete todos los campos");
             txt_nombre.setBackground(Color.red);
             txt_cantidad.setBackground(Color.red);
             txt_precio.setBackground(Color.red);
-            txt_descripcion.setBackground(Color.red);
+
 
         } else {
             //consulta para ver si el producto ya esta existe
