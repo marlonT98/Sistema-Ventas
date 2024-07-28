@@ -400,7 +400,7 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
         
         Connection con = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel();
-        String sql = "select p.idProducto , p.nombre ,p.cantidad, p.precio, p.descripcion , p.porcentajeIva , p.idCategoria , p.estado from tb_producto as p ,  tb_categoria as c where p.idCategoria = c.idCategorias;";
+        String sql = "select p.idProducto , p.nombre ,p.cantidad, p.precio, p.descripcion , p.porcentajeIva , p.idCategoria , p.estado from tb_producto as p ,  tb_categoria as c where p.idCategoria = c.idCategorias";
         Statement st;
         
         try {
